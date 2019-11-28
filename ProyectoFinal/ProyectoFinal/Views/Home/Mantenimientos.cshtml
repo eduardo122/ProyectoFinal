@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Mantenimientos";
+}
+
+<h2 class="display-3 text-info">Mantenimientos</h2>
+
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4">
+            <div class="card border-info" style="width: 18rem;">
+                <img src="~/img/empleados.jpg" class="card-img-top imagen-carta" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Empleados</h5>
+                    <p class="card-text">En el siguiente modulo se puede obtener la información de todos los empleados, y se puede manipualar esta información. </p>
+                    
+                    @Html.ActionLink("Llevame al modulo", "Index", "EMPLEADOes", "", new { @class = "btn btn-info" })
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card border-info" style="width: 18rem;">
+                <img src="~/img/cargo.jpg" class="card-img-top imagen-carta" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Cargos</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-info">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card border-info" style="width: 18rem;">
+                <img src="~/img/departamentos.jpg" class="card-img-top imagen-carta" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Departamentos</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-info">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+

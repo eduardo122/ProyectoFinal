@@ -1,0 +1,78 @@
+﻿@model ProyectoFinal.Models.EMPLEADO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="display-4">Está a punto de eliminar un empleado </h2>
+
+
+
+<div>
+    <h4>¿Seguro que quiero hacerlo?</h4>
+    <hr />
+
+    <table class="table table-bordered">
+        <thead class=" bg-primary">
+            <tr>
+                <th>
+                    Codigo
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Cargo
+                </th>
+                <th>
+                    Departamento
+                </th>
+                <th>
+                    Salario
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    @Html.DisplayFor(model => model.codigo_empleado)
+                </th>
+
+                <th>
+                    @Html.DisplayFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.apellido)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.CARGO1.Cargo1)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.DEPARTAMENTO1.nombre)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.salario)
+                </th>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Cancelar", "Index" , "",new { @class="btn btn-info"})
+        </div>
+    }
+</div>

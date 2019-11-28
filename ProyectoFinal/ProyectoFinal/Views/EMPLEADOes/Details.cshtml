@@ -1,0 +1,90 @@
+﻿@model ProyectoFinal.Models.EMPLEADO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="display-4">Información del empleado</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <h3 class="">Codigo de empleado:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo_empleado)
+        </dd>
+
+        <dt>
+            <h3 class="">Nombre:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            <h3 class="">Apellido:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido)
+        </dd>
+
+        <dt>
+            <h3 class="">Telefono:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            <h3 class="">Fecha de ingreso:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_ingreso)
+        </dd>
+
+        <dt>
+            <h3 class="">Salario:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salario)
+        </dd>
+
+        <dt>
+            <h3 class="">Estatus:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estatus)
+        </dd>
+
+        <dt>
+            <h3 class="">Cargo:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CARGO1.Cargo1)
+        </dd>
+
+        <dt>
+            <h3 class="">Departamento:</h3>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEPARTAMENTO1.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Actualizar Informacion", "Edit", new { id = Model.id }, new { @class="btn btn-warning"}) |
+    @Html.ActionLink("Regresar", "Index", "", new {@class="btn btn-primary" })
+</p>

@@ -26,5 +26,10 @@ namespace ProyectoFinal.Controllers
 
             return View();
         }
+
+        public ActionResult Mantenimientos() {
+
+            return View();
+        }
     }
 }

@@ -130,6 +130,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CARGOesController.cs" />
+    <Compile Include="Controllers\DEPARTAMENTOesController.cs" />
     <Compile Include="Controllers\EMPLEADOesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -262,6 +264,16 @@
     <Content Include="Views\EMPLEADOes\Edit.cshtml" />
     <Content Include="Views\EMPLEADOes\Index.cshtml" />
     <Content Include="Views\Home\Mantenimientos.cshtml" />
+    <Content Include="Views\CARGOes\Create.cshtml" />
+    <Content Include="Views\CARGOes\Delete.cshtml" />
+    <Content Include="Views\CARGOes\Details.cshtml" />
+    <Content Include="Views\CARGOes\Edit.cshtml" />
+    <Content Include="Views\CARGOes\Index.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Create.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Delete.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Details.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Edit.cshtml" />
+    <Content Include="Views\DEPARTAMENTOes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

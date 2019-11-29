@@ -1,0 +1,24 @@
+﻿@model ProyectoFinal.Models.DEPARTAMENTO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="display-4">Usted esta por eliminar el siguiente departamento:</h2>
+<h1> @Html.DisplayFor(model => model.nombre)</h1>
+
+
+<div>
+    <h4 class="display-4">¿Está seguro de esto?</h4>
+    <hr />
+    
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Cancelar", "Index", "",new { @class="btn btn-primary"} )
+        </div>
+    }
+</div>

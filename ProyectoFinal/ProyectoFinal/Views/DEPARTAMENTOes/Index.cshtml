@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ProyectoFinal.Models.DEPARTAMENTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="display-4 text-info">Departamentos</h2>
+
+<p>
+    @Html.ActionLink("Agregar un nuevo departamento", "Create", "", new { @class = "btn btn-primary text-light" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Codigo del departamento")
+        </th>
+        <th>
+            @Html.DisplayName("Nombre del departamento")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo_departamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "btn btn-success btn-sm text-white" }) |
+               |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "btn btn-danger btn-sm text-white" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Volver", "Mantenimientos", "Home", "", new { @class = "btn btn-primary" })
+</div>

@@ -1,0 +1,59 @@
+﻿
+
+@{
+    ViewBag.Title = "Nomina";
+}
+<h1 class="display-4"> Nomina disponible para empleados activos</h1>
+<hr />
+
+<table class="table border-1 border-info">
+    <tr class="bg-info">
+        <th>
+            Empleado
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th>
+            Salario
+        </th>
+    </tr>
+    @{int monto = 0; }
+    @foreach (var item in ViewData["Empleados"] as IEnumerable<ProyectoFinal.Models.ListaEmpleados>)
+    {
+        <tr>
+            <td>@item.empleadoslista.nombre @item.empleadoslista.apellido </td>
+            <td>@item.cargoLista.Cargo1</td>
+            <td>@item.empleadoslista.salario</td>
+
+            @{ if (item.empleadoslista.salario.HasValue)
+                {
+
+                    monto = monto + item.empleadoslista.salario.Value;
+
+                }
+
+            }
+
+        </tr>
+
+
+
+    }
+    <tr>
+        <td class="text-center text-light bg-primary">
+            Monto total de nomina
+        </td>
+        <td class="text-center text-light bg-primary">
+            @monto
+        </td>
+        <td class="bg-primary"></td>
+    </tr>
+
+</table>
+
+<div class="container text-center">
+
+    @Html.ActionLink("Validar nomina", "ValidarNomina", "Home", new { monto = monto }, new { @class = "btn btn-info btn-lg" })
+</div>
+@Html.ActionLink("Regresar", "Procesos", "Home")

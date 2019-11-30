@@ -28,5 +28,6 @@ namespace ProyectoFinal.Models
         public virtual DbSet<CARGO> CARGOes { get; set; }
         public virtual DbSet<DEPARTAMENTO> DEPARTAMENTOS { get; set; }
         public virtual DbSet<EMPLEADO> EMPLEADOS { get; set; }
+        public virtual DbSet<NOMINA> NOMINAS { get; set; }
     }
 }

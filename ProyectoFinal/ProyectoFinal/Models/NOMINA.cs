@@ -11,19 +11,17 @@ namespace ProyectoFinal.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class CARGO
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class NOMINA
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CARGO()
-        {
-            this.EMPLEADOS = new HashSet<EMPLEADO>();
-        }
-    
         public int id { get; set; }
-        public string Cargo1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EMPLEADO> EMPLEADOS { get; set; }
+        public Nullable<int> año { get; set; }
+        public string mes { get; set; }
+        public Nullable<int> monto_total { get; set; }
     }
+
+    public enum meses {Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre }
+
+
 }

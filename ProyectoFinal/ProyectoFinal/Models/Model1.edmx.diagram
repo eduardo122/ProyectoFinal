@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="PROYECTO_FINALModel.EMPLEADO" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="PROYECTO_FINALModel.FK__EMPLEADOS__cargo__04E4BC85" ManuallyRouted="false" />
         <AssociationConnector Association="PROYECTO_FINALModel.FK__EMPLEADOS__depar__03F0984C" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PROYECTO_FINALModel.NOMINA" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

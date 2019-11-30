@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PROYECTO_FINALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PROYECTO_FINALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CARGO">
           <Key>
             <PropertyRef Name="id" />
@@ -35,6 +35,15 @@
           <Property Name="salario" Type="int" />
           <Property Name="estatus" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="NOMINAS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="año" Type="int" />
+          <Property Name="mes" Type="varchar" MaxLength="50" />
+          <Property Name="monto_total" Type="int" />
+        </EntityType>
         <Association Name="FK__EMPLEADOS__cargo__04E4BC85">
           <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
           <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
@@ -63,6 +72,7 @@
           <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NOMINAS" EntityType="Self.NOMINAS" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__EMPLEADOS__cargo__04E4BC85" Association="Self.FK__EMPLEADOS__cargo__04E4BC85">
             <End Role="CARGO" EntitySet="CARGO" />
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
@@ -72,8 +82,7 @@
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PROYECTO_FINALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -147,7 +156,17 @@
             <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
           </AssociationSet>
+          <EntitySet Name="NOMINAS" EntityType="PROYECTO_FINALModel.NOMINA" />
         </EntityContainer>
+        <EntityType Name="NOMINA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="año" Type="Int32" />
+          <Property Name="mes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="monto_total" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -184,6 +203,16 @@
                 <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
                 <ScalarProperty Name="salario" ColumnName="salario" />
                 <ScalarProperty Name="estatus" ColumnName="estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NOMINAS">
+            <EntityTypeMapping TypeName="PROYECTO_FINALModel.NOMINA">
+              <MappingFragment StoreEntitySet="NOMINAS">
+                <ScalarProperty Name="monto_total" ColumnName="monto_total" />
+                <ScalarProperty Name="mes" ColumnName="mes" />
+                <ScalarProperty Name="año" ColumnName="año" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

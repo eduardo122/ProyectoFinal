@@ -14,6 +14,12 @@ namespace ProyectoFinal.Models
     
     public partial class EMPLEADO
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public EMPLEADO()
+        {
+            this.SALIDAS = new HashSet<SALIDA>();
+        }
+    
         public int id { get; set; }
         public string codigo_empleado { get; set; }
         public string nombre { get; set; }
@@ -27,8 +33,9 @@ namespace ProyectoFinal.Models
     
         public virtual CARGO CARGO1 { get; set; }
         public virtual DEPARTAMENTO DEPARTAMENTO1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SALIDA> SALIDAS { get; set; }
+    }
 
-       
-}
-    public enum Estatus { Activo, Inactivo }
+    public enum Estatus {Activo, Inactivo }
 }

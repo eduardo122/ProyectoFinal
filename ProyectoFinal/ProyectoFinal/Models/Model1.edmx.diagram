@@ -11,6 +11,8 @@
         <AssociationConnector Association="PROYECTO_FINALModel.FK__EMPLEADOS__cargo__04E4BC85" ManuallyRouted="false" />
         <AssociationConnector Association="PROYECTO_FINALModel.FK__EMPLEADOS__depar__03F0984C" ManuallyRouted="false" />
         <EntityTypeShape EntityType="PROYECTO_FINALModel.NOMINA" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PROYECTO_FINALModel.SALIDA" Width="1.5" PointX="5.25" PointY="3.625" />
+        <AssociationConnector Association="PROYECTO_FINALModel.FK__SALIDAS__emplead__0C85DE4D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

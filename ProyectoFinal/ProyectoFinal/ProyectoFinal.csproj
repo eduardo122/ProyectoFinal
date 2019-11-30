@@ -165,6 +165,9 @@
     <Compile Include="Models\NOMINA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SALIDA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -287,6 +290,9 @@
     <Content Include="Views\Home\Procesos.cshtml" />
     <Content Include="Views\Home\Nomina.cshtml" />
     <Content Include="Views\Home\ValidarNomina.cshtml" />
+    <Content Include="Views\Home\Salida.cshtml" />
+    <Content Include="Views\Home\Validarsalida.cshtml" />
+    <Content Include="Views\Home\ConfirmarSalida.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

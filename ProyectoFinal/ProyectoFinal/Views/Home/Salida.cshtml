@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Salida";
+}
+
+<div class=" container">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="display-4"> Lista de empleados Activos</h2>
+        </div>
+        <div class="col-4">
+            <form class="form-group">
+
+            
+            </form>
+        </div>
+    </div>
+  
+</div>
+
+<hr>
+
+<table class="table border-1 border-info">
+    <tr class="bg-info">
+        <th class="text-light">
+            Codigo de empleado
+        </th>
+        <th class="text-light">
+            Empleado
+        </th>
+        <th class="text-light">
+            Depatartamento
+        </th>
+        <th class="text-light">
+            Cargo
+        </th>
+        <th class="text-light">
+            Salario
+        </th>
+        <th class="text-light">
+            Acciones
+        </th>
+    </tr>
+    @{int monto = 0; }
+    @foreach (var item in ViewData["Empleados"] as IEnumerable<ProyectoFinal.Models.ListaEmpleados>)
+    {
+    <tr>
+        <td>@item.empleadoslista.codigo_empleado</td>
+        <td>@item.empleadoslista.nombre @item.empleadoslista.apellido </td>
+        <td>@item.departamentolista.nombre</td>
+        <td>@item.cargoLista.Cargo1</td>
+        <td>@item.empleadoslista.salario</td>
+
+        @{ if (item.empleadoslista.salario.HasValue)
+            {
+
+                monto = monto + item.empleadoslista.salario.Value;
+
+            }
+
+        }
+        <td>
+            @Html.ActionLink("Salida", "ConfirmarSalida", new { id = item.empleadoslista.id }, new { @class = "btn btn-success btn-sm text-white" })
+        </td>
+    </tr>
+
+    }
+
+
+</table>
+
+@Html.ActionLink("Regresar", "Procesos", "Home")

@@ -9,5 +9,6 @@ namespace ProyectoFinal.Models
     {
         public EMPLEADO empleadoslista { get; set; }
         public CARGO cargoLista { get; set; }
+        public DEPARTAMENTO departamentolista { get; set; }
     }
 }

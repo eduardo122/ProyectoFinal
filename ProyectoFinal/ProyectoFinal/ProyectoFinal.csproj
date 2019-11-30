@@ -176,7 +176,13 @@
     <Content Include="img\cargo.jpg" />
     <Content Include="img\departamentos.jpg" />
     <Content Include="img\empleados.jpg" />
+    <Content Include="img\licencia.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\nomina-lg.jpg" />
+    <Content Include="img\permisos.jpg" />
+    <Content Include="img\salida.jpg" />
+    <Content Include="img\salidas-lg.jpg" />
+    <Content Include="img\vacaciones.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -274,6 +280,7 @@
     <Content Include="Views\DEPARTAMENTOes\Details.cshtml" />
     <Content Include="Views\DEPARTAMENTOes\Edit.cshtml" />
     <Content Include="Views\DEPARTAMENTOes\Index.cshtml" />
+    <Content Include="Views\Home\Procesos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

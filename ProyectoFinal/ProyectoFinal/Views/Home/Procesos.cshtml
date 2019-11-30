@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Procesos";
+}
+
+<h2 class="display-3 text-info">Procesos</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="~/img/nomina-lg.jpg" class="card-img imagen-carta" alt="nominas">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Nomina</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content</p>
+                            @Html.ActionLink("Calcular nomina", "Index", "EMPLEADOes", "", new { @class = "btn btn-info" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="~/img/salidas-lg.jpg" class="card-img imagen-carta" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Salidas</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content</p>
+                            @Html.ActionLink("Llevame al modulo", "Index", "EMPLEADOes", "", new { @class = "btn btn-info" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="~/img/vacaciones.jpg" class="card-img imagen-carta" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Vacaciones</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content</p>
+                            @Html.ActionLink("Llevame al modulo", "Index", "EMPLEADOes", "", new { @class = "btn btn-info" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-6"><div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4 ">
+            <img src="~/img/permisos.jpg" class="card-img mt-5" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Permisos</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                @Html.ActionLink("Llevame al modulo", "Index", "EMPLEADOes", "", new { @class = "btn btn-info" })
+            </div>
+        </div>
+    </div>
+</div></div>
+        <div class="col-6"><div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="~/img/licencia.png" class="card-img mt-5 ml-3" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Licencias</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                @Html.ActionLink("Llevame al modulo", "Index", "EMPLEADOes", "", new { @class = "btn btn-info" })
+            </div>
+        </div>
+    </div>
+</div></div>
+    </div>
+
+
+</div>
+

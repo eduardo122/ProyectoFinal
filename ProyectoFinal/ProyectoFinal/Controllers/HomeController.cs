@@ -31,5 +31,11 @@ namespace ProyectoFinal.Controllers
 
             return View();
         }
+
+        public ActionResult Procesos()
+        {
+
+            return View();
+        }
     }
 }

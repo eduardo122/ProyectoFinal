@@ -65,9 +65,14 @@ namespace ProyectoFinal.Controllers
             NM.año = anio;
             NM.mes = Request.Form["mes"];
             NM.monto_total = monto;
-            
-            sd.NOMINAS.Add(NM);
-            sd.SaveChanges(); 
+
+            if (!String.IsNullOrEmpty(NM.mes))
+            {
+                sd.NOMINAS.Add(NM);
+                sd.SaveChanges();
+                return RedirectToAction("Nomina");
+            }
+           
             return View();
         }
 
@@ -111,16 +116,21 @@ namespace ProyectoFinal.Controllers
 
             Query.estatus = "Inactivo";
             db.SaveChanges();
-            ViewData["ID"] = id;
-           
-              SALIDA SLD = new SALIDA();
-              SLD.empleado = id;
-              SLD.tipo_salida = Request.Form["tipo_salida"];
-              SLD.motivo = Request.Form["motivo"];
-              SLD.fecha_salida = DateTime.Today;
-              db.SALIDAS.Add(SLD);
-              db.SaveChanges();
+            
+             SALIDA SLD = new SALIDA();
+                SLD.empleado = id;
+                SLD.tipo_salida = Request.Form["tipo_salida"];
+                SLD.motivo = Request.Form["motivo"];
+                SLD.fecha_salida = DateTime.Today;
+            if (!String.IsNullOrEmpty(SLD.motivo)) {
+                db.SALIDAS.Add(SLD);
+                db.SaveChanges();
+                return RedirectToAction("Salida");
+            }
+
+
             return View();
         }
     }
 }
+

@@ -3,11 +3,17 @@
 @{
     ViewBag.Title = "ConfirmarSalida";
 }
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
+    <div id="alerta">
+
+    </div>
 
 <div class="form-horizontal">
 
@@ -34,9 +40,20 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Validar Salida" class="btn btn-primary" />
+            <input type="submit" id="boton" value="Confirmar Salida" class="btn btn-primary" />
         </div>
     </div>
 </div>
 }
 
+@Html.ActionLink("Regresar", "Salida", "Home")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#boton").click(function () {
+            
+        });
+
+    });
+</script>

@@ -294,7 +294,17 @@ namespace ProyectoFinal.Controllers
 
         }
 
+        public ActionResult InformeCagos()
+        {
+            PROYECTO_FINALEntities1 sd = new PROYECTO_FINALEntities1();
+            List<CARGO> listaCargo = sd.CARGOes.ToList();
+
+            ViewData["Cargos"] = from c in listaCargo select new Listas { ListDeCargos = c };
+            return View(ViewData["Cargos"]);
 
         }
+
+
+    }
 }
 

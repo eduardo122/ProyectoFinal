@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "InformeCagos";
+}
+
+<table class="table border-1 border-info">
+    <tr class="bg-info">
+        <th>
+            ID
+        </th>
+        <th>
+            Nombre
+        </th>
+
+    </tr>
+
+    @foreach (var item in ViewData["Cargos"] as IEnumerable<ProyectoFinal.Models.Listas>)
+    {
+        <tr>
+            <td>@item.ListDeCargos.id</td>
+            <td>@item.ListDeCargos.Cargo1</td>
+
+        </tr>
+
+    }
+</table>

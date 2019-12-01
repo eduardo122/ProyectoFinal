@@ -284,6 +284,15 @@ namespace ProyectoFinal.Controllers
 
         }
 
+        public ActionResult InformeDepartamentos()
+        {
+            PROYECTO_FINALEntities1 sd = new PROYECTO_FINALEntities1();
+            List<DEPARTAMENTO> listaDepartamento = sd.DEPARTAMENTOS.ToList();
+
+            ViewData["Departamentos"] = from d in listaDepartamento select new Listas { ListaDeDepartamentos = d };
+            return View(ViewData["Departamentos"]);
+
+        }
 
 
         }

@@ -304,6 +304,13 @@ namespace ProyectoFinal.Controllers
 
         }
 
+        public ActionResult InformeEmpleadosMes(String mes) {
+
+            
+
+            return View();
+        }
+
 
     }
 }

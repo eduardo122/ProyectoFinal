@@ -1,0 +1,34 @@
+﻿@using ProyectoFinal.Models
+@model EMPLEADO
+@{
+    ViewBag.Title = "InformeEmpleadosMes";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div id="alerta">
+
+    </div>
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("Buscar Empleado por mes", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.fecha_ingreso , new SelectList(Enum.GetValues(typeof(meses_EMPLEADO))), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.fecha_ingreso, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="boton" value="Buscar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

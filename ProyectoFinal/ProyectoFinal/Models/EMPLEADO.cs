@@ -46,4 +46,5 @@ namespace ProyectoFinal.Models
         public virtual ICollection<LICENCIA> LICENCIAS { get; set; }
     }
         public enum Estatus { Activo, Inactivo }
+        public enum meses_EMPLEADO { Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre }
 }

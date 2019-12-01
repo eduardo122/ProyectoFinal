@@ -233,6 +233,20 @@ namespace ProyectoFinal.Controllers
             return View();
         }
 
+        public ActionResult InformeNomina() {
+            PROYECTO_FINALEntities1 sd = new PROYECTO_FINALEntities1();
+
+            List<NOMINA> listaNominas = sd.NOMINAS.ToList();
+            
+
+            ViewData["Nominas"] = from n in listaNominas
+                                  select new Listas { ListaDeNominas = n};
+
+            return View(ViewData["Nominas"]);
+
+           
+        }
+
 
 
     }

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "InformeNomina";
+}
+
+
+<table class="table border-1 border-info">
+    <tr class="bg-info">
+        <th>
+            Año 
+        </th>
+        <th>
+            Mes
+        </th>
+        <th>
+           Monto Total
+        </th>
+    </tr>
+  
+    @foreach (var item in ViewData["Nominas"] as IEnumerable<ProyectoFinal.Models.Listas>)
+    {
+        <tr>
+            <td>@item.ListaDeNominas.año</td>
+            <td>@item.ListaDeNominas.mes</td>
+            <td>@item.ListaDeNominas.monto_total</td>
+
+        </tr>
+
+    }
+</table>
+

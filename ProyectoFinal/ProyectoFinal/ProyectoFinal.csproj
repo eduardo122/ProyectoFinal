@@ -312,6 +312,7 @@
     <Content Include="Views\Home\Informes.cshtml" />
     <Content Include="Views\Home\InformeNomina.cshtml" />
     <Content Include="Views\Home\InformeEmpleadosActivos.cshtml" />
+    <Content Include="Views\Home\InformeEmpleadosInactivos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

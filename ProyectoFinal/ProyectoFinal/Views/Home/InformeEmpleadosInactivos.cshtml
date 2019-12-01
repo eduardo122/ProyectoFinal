@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "InformeEmpleadosInactivos";
+}
+
+
+
+<table class="table border-1 border-info">
+    <tr class="bg-info">
+        <th>
+            Codigo Empleado
+        </th>
+        <th>
+            Empleado
+        </th>
+        <th>
+            Departamento
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th>
+            Salario
+        </th>
+    </tr>
+
+    @foreach (var item in ViewData["EmpleadosInactivos"] as IEnumerable<ProyectoFinal.Models.Listas>)
+    {
+        <tr>
+            <td>@item.ListaDeEmpleados.codigo_empleado</td>
+            <td>@item.ListaDeEmpleados.nombre  @item.ListaDeEmpleados.apellido</td>
+            <td>@item.ListaDeDepartamentos.nombre</td>
+            <td>@item.ListDeCargos.Cargo1</td>
+            <td>@item.ListaDeEmpleados.salario</td>
+
+        </tr>
+
+    }
+</table>
+
+
+
+
+

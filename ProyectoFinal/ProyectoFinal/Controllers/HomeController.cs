@@ -247,6 +247,22 @@ namespace ProyectoFinal.Controllers
            
         }
 
+        public ActionResult InformeEmpleadosActivos() {
+            PROYECTO_FINALEntities1 sd = new PROYECTO_FINALEntities1();
+
+            List<EMPLEADO> listaEmpleados = sd.EMPLEADOS.ToList();
+            List<DEPARTAMENTO> listaDepartamento = sd.DEPARTAMENTOS.ToList();
+            List<CARGO> listaCargo = sd.CARGOes.ToList();
+
+            ViewData["EmpleadosActivos"] = from e in listaEmpleados
+                                           where e.estatus == "Activo"
+                                    join c in listaCargo on e.cargo equals c.id into table1 from c in table1.DefaultIfEmpty()
+                                    join d in listaDepartamento on e.departamento equals d.id into table2 from d in table2.DefaultIfEmpty()
+                                    select new Listas { ListaDeEmpleados = e, ListDeCargos = c, ListaDeDepartamentos = d };
+
+            return View(ViewData["EmpleadosActivos"]);
+        }
+        
 
 
     }

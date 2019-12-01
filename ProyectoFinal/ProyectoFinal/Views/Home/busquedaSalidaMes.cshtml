@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "busquedaSalidaMes";
+}
+
+
+<table class="table border-1 border-info">
+    <tr class="bg-info">
+        <th>
+            Empleado
+        </th>
+        <th>
+           Tipo
+        </th>
+        <th>
+           Motivo
+        </th>
+        <th>
+           Fecha
+        </th>
+    </tr>
+
+    @foreach (var item in ViewData["SalidasMes"] as IEnumerable<ProyectoFinal.Models.Listas>)
+    {
+        <tr>
+            <td>@item.ListaDeEmpleados.nombre @item.ListaDeEmpleados.apellido</td>
+            <td>@item.listaDeSalidas.tipo_salida</td>
+            <td>@item.listaDeSalidas.motivo</td>
+            <td>@item.listaDeSalidas.fecha_salida</td>
+
+        </tr>
+
+    }
+</table>
+

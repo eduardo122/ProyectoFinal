@@ -1,0 +1,35 @@
+﻿@using ProyectoFinal.Models
+@model SALIDA
+@{
+    ViewBag.Title = "InformeSalidaMes";
+}
+
+
+@using (Html.BeginForm("busquedaSalidaMes", "Home"))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="alerta">
+
+    </div>
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("Buscar salida por mes", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("mes", new SelectList(Enum.GetValues(typeof(meses_SALIDA))), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.fecha_salida , "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="boton" value="Buscar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+

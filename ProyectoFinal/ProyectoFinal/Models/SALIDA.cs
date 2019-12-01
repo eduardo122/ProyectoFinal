@@ -20,9 +20,10 @@ namespace ProyectoFinal.Models
         public string tipo_salida { get; set; }
         [Required(ErrorMessage = "Se requiere el motivo")]
         public string motivo { get; set; }
-        public Nullable<System.DateTime> fecha_salida { get; set; }
+        public System.DateTime fecha_salida { get; set; }
     
         public virtual EMPLEADO EMPLEADO1 { get; set; }
     }
         public enum Tipo { Renuncia, Despido, Desahucio }
+        public enum meses_SALIDA { Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre }
 }

@@ -317,6 +317,8 @@
     <Content Include="Views\Home\InformeCagos.cshtml" />
     <Content Include="Views\Home\InformeEmpleadosMes.cshtml" />
     <Content Include="Views\Home\busquedaEmpleadoMes.cshtml" />
+    <Content Include="Views\Home\InformeSalidaMes.cshtml" />
+    <Content Include="Views\Home\busquedaSalidaMes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

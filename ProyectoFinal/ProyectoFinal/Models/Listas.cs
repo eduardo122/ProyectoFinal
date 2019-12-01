@@ -11,5 +11,6 @@ namespace ProyectoFinal.Models
         public EMPLEADO ListaDeEmpleados { get; set; }
         public DEPARTAMENTO ListaDeDepartamentos { get; set; }
         public CARGO ListDeCargos { get; set; }
+        public SALIDA listaDeSalidas { get; set; }
     }
 }

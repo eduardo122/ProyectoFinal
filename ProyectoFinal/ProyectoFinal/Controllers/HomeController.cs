@@ -368,6 +368,70 @@ namespace ProyectoFinal.Controllers
            
         }
 
+        public ActionResult InformeSalidaMes() {
+
+            return View();
+        }
+
+        public ActionResult busquedaSalidaMes(string mes)
+        {
+
+            PROYECTO_FINALEntities1 sd = new PROYECTO_FINALEntities1();
+            List<SALIDA> salidaslista = sd.SALIDAS.ToList();
+            List<EMPLEADO> empleadoslista = sd.EMPLEADOS.ToList();
+
+
+            int miMes = 0;  
+            switch (mes)
+            {
+                case "Enero":
+                    miMes = 1;
+                    break;
+                case "Febrero":
+                    miMes = 2;
+                    break;
+                case "Marzo":
+                    miMes = 3;
+                    break;
+                case "Abril":
+                    miMes = 4;
+                    break;
+                case "Mayo":
+                    miMes = 5;
+                    break;
+                case "Junio":
+                    miMes = 6;
+                    break;
+                case "Julio":
+                    miMes = 7;
+                    break;
+                case "Agosto":
+                    miMes = 8;
+                    break;
+                case "Septiembre":
+                    miMes = 9;
+                    break;
+                case "Octubre":
+                    miMes = 10;
+                    break;
+                case "Noviembre":
+                    miMes = 11;
+                    break;
+                case "Diciembre":
+                    miMes = 12;
+                    break;
+
+            }
+
+            ViewData["SalidasMes"] = from s in salidaslista
+                                              where s.fecha_salida.Month == miMes
+                                              join e in empleadoslista on s.empleado equals e.id into table1
+                                              from e in table1.DefaultIfEmpty()
+                                              select new Listas { listaDeSalidas = s, ListaDeEmpleados = e};
+          
+            return View(ViewData["SalidasMes"]);
+
+        }
 
     }
 }

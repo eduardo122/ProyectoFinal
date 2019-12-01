@@ -304,11 +304,68 @@ namespace ProyectoFinal.Controllers
 
         }
 
-        public ActionResult InformeEmpleadosMes(String mes) {
+        public ActionResult InformeEmpleadosMes() {
 
-            
-
+        
             return View();
+        }
+
+        public ActionResult busquedaEmpleadoMes(string mes) {
+           
+            PROYECTO_FINALEntities1 sd = new PROYECTO_FINALEntities1();
+            List<EMPLEADO> empleadoslista = sd.EMPLEADOS.ToList();
+            List<CARGO> cargolista = sd.CARGOes.ToList();
+
+            int miMes = 0;
+            switch (mes)
+            {
+                case "Enero":
+                    miMes = 1;
+                    break;
+                case "Febrero":
+                    miMes = 2;
+                    break;
+                case "Marzo":
+                    miMes = 3;
+                    break;
+                case "Abril":
+                    miMes = 4;
+                    break;
+                case "Mayo":
+                    miMes = 5;
+                    break;
+                case "Junio":
+                    miMes = 6;
+                    break;
+                case "Julio":
+                    miMes = 7;
+                    break;
+                case "Agosto":
+                    miMes = 8;
+                    break;
+                case "Septiembre":
+                    miMes = 9;
+                    break;
+                case "Octubre":
+                    miMes = 10;
+                    break;
+                case "Noviembre":
+                    miMes = 11;
+                    break;
+                case "Diciembre":
+                    miMes = 12;
+                    break;
+
+            }
+
+            ViewData["EmpleadosEntradaMes"] = from e in empleadoslista
+                                    where e.fecha_ingreso.Month ==miMes
+                                    join c in cargolista on e.cargo equals c.id into table1
+                                    from c in table1.DefaultIfEmpty()
+                                    select new Listas { ListaDeEmpleados = e, ListDeCargos = c };
+
+            return View(ViewData["EmpleadosEntradaMes"]);
+           
         }
 
 

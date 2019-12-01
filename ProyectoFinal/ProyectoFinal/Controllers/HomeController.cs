@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -116,12 +117,13 @@ namespace ProyectoFinal.Controllers
 
             Query.estatus = "Inactivo";
             db.SaveChanges();
-            
-             SALIDA SLD = new SALIDA();
+             
+                SALIDA SLD = new SALIDA();
                 SLD.empleado = id;
                 SLD.tipo_salida = Request.Form["tipo_salida"];
                 SLD.motivo = Request.Form["motivo"];
                 SLD.fecha_salida = DateTime.Today;
+
             if (!String.IsNullOrEmpty(SLD.motivo)) {
                 db.SALIDAS.Add(SLD);
                 db.SaveChanges();
@@ -131,6 +133,49 @@ namespace ProyectoFinal.Controllers
 
             return View();
         }
+
+
+
+        public ActionResult Vacaciones() {
+            PROYECTO_FINALEntities1 db = new PROYECTO_FINALEntities1();
+            var getEmpleados = db.EMPLEADOS.ToList();
+            
+            SelectList lista = new SelectList(getEmpleados, "id", "Nombre", "Apellido", "","");
+            ViewBag.empleados = lista;
+   
+            VACACIONE VC = new VACACIONE();
+
+            int id;
+            string desde = Request.Form["desde"];
+            string hasta = Request.Form["hasta"];
+            if (String.IsNullOrEmpty(Request.Form["empleado"])) { id = 0; }
+
+            else { id = Int32.Parse((Request.Form["empleado"])); }
+
+
+            VC.empleado = id;
+            VC.desde = Convert.ToDateTime(desde);
+            VC.hasta = Convert.ToDateTime(hasta);
+            VC.correspondiente = Request.Form["correspondiente"];
+            VC.comentarios = Request.Form["comentarios"];
+
+            if (!String.IsNullOrEmpty(VC.comentarios)) {
+                db.VACACIONES.Add(VC);
+                db.SaveChanges();
+                return RedirectToAction("Procesos");
+            }
+          
+
+            return View();
+
+
+
+
+        }
+
+
+
+
     }
 }
 

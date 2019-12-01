@@ -54,6 +54,17 @@
           <Property Name="motivo" Type="varchar" MaxLength="200" />
           <Property Name="fecha_salida" Type="date" />
         </EntityType>
+        <EntityType Name="VACACIONES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empleado" Type="int" Nullable="false" />
+          <Property Name="desde" Type="date" />
+          <Property Name="hasta" Type="date" />
+          <Property Name="correspondiente" Type="varchar" MaxLength="4" />
+          <Property Name="comentarios" Type="varchar" MaxLength="200" />
+        </EntityType>
         <Association Name="FK__EMPLEADOS__cargo__04E4BC85">
           <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
           <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
@@ -90,12 +101,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__VACACIONE__emple__17036CC0">
+          <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="1" />
+          <End Role="VACACIONES" Type="Self.VACACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VACACIONES">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PROYECTO_FINALModelStoreContainer">
           <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NOMINAS" EntityType="Self.NOMINAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VACACIONES" EntityType="Self.VACACIONES" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__EMPLEADOS__cargo__04E4BC85" Association="Self.FK__EMPLEADOS__cargo__04E4BC85">
             <End Role="CARGO" EntitySet="CARGO" />
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
@@ -107,6 +131,10 @@
           <AssociationSet Name="FK__SALIDAS__emplead__0C85DE4D" Association="Self.FK__SALIDAS__emplead__0C85DE4D">
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
             <End Role="SALIDAS" EntitySet="SALIDAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VACACIONE__emple__17036CC0" Association="Self.FK__VACACIONE__emple__17036CC0">
+            <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+            <End Role="VACACIONES" EntitySet="VACACIONES" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -147,6 +175,7 @@
           <NavigationProperty Name="CARGO1" Relationship="Self.FK__EMPLEADOS__cargo__04E4BC85" FromRole="EMPLEADOS" ToRole="CARGO" />
           <NavigationProperty Name="DEPARTAMENTO1" Relationship="Self.FK__EMPLEADOS__depar__03F0984C" FromRole="EMPLEADOS" ToRole="DEPARTAMENTOS" />
           <NavigationProperty Name="SALIDAS" Relationship="PROYECTO_FINALModel.FK__SALIDAS__emplead__0C85DE4D" FromRole="EMPLEADO" ToRole="SALIDA" />
+          <NavigationProperty Name="VACACIONES" Relationship="PROYECTO_FINALModel.FK__VACACIONE__emple__17036CC0" FromRole="EMPLEADO" ToRole="VACACIONE" />
         </EntityType>
         <Association Name="FK__EMPLEADOS__cargo__04E4BC85">
           <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
@@ -190,6 +219,11 @@
             <End Role="EMPLEADO" EntitySet="EMPLEADOS" />
             <End Role="SALIDA" EntitySet="SALIDAS" />
           </AssociationSet>
+          <EntitySet Name="VACACIONES" EntityType="PROYECTO_FINALModel.VACACIONE" />
+          <AssociationSet Name="FK__VACACIONE__emple__17036CC0" Association="PROYECTO_FINALModel.FK__VACACIONE__emple__17036CC0">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOS" />
+            <End Role="VACACIONE" EntitySet="VACACIONES" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="NOMINA">
           <Key>
@@ -219,6 +253,30 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="SALIDA">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VACACIONE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empleado" Type="Int32" Nullable="false" />
+          <Property Name="desde" Type="DateTime" Precision="0" />
+          <Property Name="hasta" Type="DateTime" Precision="0" />
+          <Property Name="correspondiente" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="comentarios" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLEADO1" Relationship="PROYECTO_FINALModel.FK__VACACIONE__emple__17036CC0" FromRole="VACACIONE" ToRole="EMPLEADO" />
+        </EntityType>
+        <Association Name="FK__VACACIONE__emple__17036CC0">
+          <End Type="PROYECTO_FINALModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1" />
+          <End Type="PROYECTO_FINALModel.VACACIONE" Role="VACACIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VACACIONE">
               <PropertyRef Name="empleado" />
             </Dependent>
           </ReferentialConstraint>
@@ -278,6 +336,18 @@
                 <ScalarProperty Name="fecha_salida" ColumnName="fecha_salida" />
                 <ScalarProperty Name="motivo" ColumnName="motivo" />
                 <ScalarProperty Name="tipo_salida" ColumnName="tipo_salida" />
+                <ScalarProperty Name="empleado" ColumnName="empleado" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VACACIONES">
+            <EntityTypeMapping TypeName="PROYECTO_FINALModel.VACACIONE">
+              <MappingFragment StoreEntitySet="VACACIONES">
+                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+                <ScalarProperty Name="correspondiente" ColumnName="correspondiente" />
+                <ScalarProperty Name="hasta" ColumnName="hasta" />
+                <ScalarProperty Name="desde" ColumnName="desde" />
                 <ScalarProperty Name="empleado" ColumnName="empleado" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

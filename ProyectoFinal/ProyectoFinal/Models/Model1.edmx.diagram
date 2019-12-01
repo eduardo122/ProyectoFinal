@@ -13,6 +13,8 @@
         <EntityTypeShape EntityType="PROYECTO_FINALModel.NOMINA" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="PROYECTO_FINALModel.SALIDA" Width="1.5" PointX="5.25" PointY="3.625" />
         <AssociationConnector Association="PROYECTO_FINALModel.FK__SALIDAS__emplead__0C85DE4D" />
+        <EntityTypeShape EntityType="PROYECTO_FINALModel.VACACIONE" Width="1.5" PointX="5.25" PointY="6.625" />
+        <AssociationConnector Association="PROYECTO_FINALModel.FK__VACACIONE__emple__17036CC0" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

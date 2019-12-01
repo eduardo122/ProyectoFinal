@@ -168,6 +168,9 @@
     <Compile Include="Models\SALIDA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VACACIONE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +296,7 @@
     <Content Include="Views\Home\Salida.cshtml" />
     <Content Include="Views\Home\Validarsalida.cshtml" />
     <Content Include="Views\Home\ConfirmarSalida.cshtml" />
+    <Content Include="Views\Home\Vacaciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

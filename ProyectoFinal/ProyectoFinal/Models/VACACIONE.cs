@@ -11,14 +11,20 @@ namespace ProyectoFinal.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class SALIDA
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class VACACIONE
     {
         public int ID { get; set; }
-        public Nullable<int> empleado { get; set; }
-        public string tipo_salida { get; set; }
-        public string motivo { get; set; }
-        public Nullable<System.DateTime> fecha_salida { get; set; }
+        public int empleado { get; set; }
+        [Required(ErrorMessage = "Introduzca la fecha de salida")]
+        public Nullable<System.DateTime> desde { get; set; }
+        [Required(ErrorMessage = "Introduzca la fecha de regreso")]
+        public Nullable<System.DateTime> hasta { get; set; }
+        [Required(ErrorMessage = "Introduzca el año correspondiente")]
+        public string correspondiente { get; set; }
+        [Required(ErrorMessage = "Introduzca un comentario")]
+        public string comentarios { get; set; }
     
         public virtual EMPLEADO EMPLEADO1 { get; set; }
     }

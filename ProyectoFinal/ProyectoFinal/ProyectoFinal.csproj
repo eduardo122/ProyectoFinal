@@ -190,12 +190,17 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\cargo.jpg" />
+    <Content Include="img\contratado.jpg" />
     <Content Include="img\departamentos.jpg" />
+    <Content Include="img\despedido.jpg" />
+    <Content Include="img\empleado.jpg" />
     <Content Include="img\empleados.jpg" />
+    <Content Include="img\inactivo.jpg" />
     <Content Include="img\licencia.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\nomina-lg.jpg" />
     <Content Include="img\permisos.jpg" />
+    <Content Include="img\permisos_.jpg" />
     <Content Include="img\salida.jpg" />
     <Content Include="img\salidas-lg.jpg" />
     <Content Include="img\vacaciones.jpg" />
@@ -305,6 +310,7 @@
     <Content Include="Views\Home\Vacaciones.cshtml" />
     <Content Include="Views\Home\Permisos.cshtml" />
     <Content Include="Views\Home\Licencias.cshtml" />
+    <Content Include="Views\Home\Informes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

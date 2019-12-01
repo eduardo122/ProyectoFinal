@@ -229,7 +229,9 @@ namespace ProyectoFinal.Controllers
             return View();
         }
 
-
+        public ActionResult Informes() {
+            return View();
+        }
 
 
 

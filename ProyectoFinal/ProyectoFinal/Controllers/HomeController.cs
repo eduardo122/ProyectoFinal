@@ -168,9 +168,36 @@ namespace ProyectoFinal.Controllers
 
             return View();
 
+        }
 
 
+        public ActionResult Permisos() {
+            PROYECTO_FINALEntities1 db = new PROYECTO_FINALEntities1();
+            PERMISO PM = new PERMISO();
+            var getEmpleados = db.EMPLEADOS.ToList();
 
+            SelectList lista = new SelectList(getEmpleados, "id", "Nombre", "Apellido", "", "");
+            ViewBag.empleados = lista;
+
+            int id;
+            string desde = Request.Form["desde"];
+            string hasta = Request.Form["hasta"];
+            if (String.IsNullOrEmpty(Request.Form["empleado"])) { id = 0; }
+
+            else { id = Int32.Parse((Request.Form["empleado"])); }
+            PM.empleado = id;
+            PM.desde = Convert.ToDateTime(desde);
+            PM.hasta = Convert.ToDateTime(hasta);
+            PM.comentarios = Request.Form["comentarios"];
+
+            if (!String.IsNullOrEmpty(PM.comentarios))
+            {
+                db.PERMISOS.Add(PM);
+                db.SaveChanges();
+                return RedirectToAction("Procesos");
+            }
+
+            return View();
         }
 
 

@@ -11,16 +11,19 @@ namespace ProyectoFinal.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class SALIDA
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class PERMISO
     {
         public int ID { get; set; }
         public Nullable<int> empleado { get; set; }
-        public string tipo_salida { get; set; }
-        public string motivo { get; set; }
-        public Nullable<System.DateTime> fecha_salida { get; set; }
+        [Required(ErrorMessage = "Se requiere la fecha de incio")]
+        public Nullable<System.DateTime> desde { get; set; }
+        [Required(ErrorMessage = "Se requiere la fecha de regreso")]
+        public Nullable<System.DateTime> hasta { get; set; }
+        [Required(ErrorMessage = "Se requiere un comentario")]
+        public string comentarios { get; set; }
     
         public virtual EMPLEADO EMPLEADO1 { get; set; }
     }
-    public enum Tipo { Renuncia, Despido, Desahucio }
 }

@@ -31,5 +31,6 @@ namespace ProyectoFinal.Models
         public virtual DbSet<NOMINA> NOMINAS { get; set; }
         public virtual DbSet<SALIDA> SALIDAS { get; set; }
         public virtual DbSet<VACACIONE> VACACIONES { get; set; }
+        public virtual DbSet<PERMISO> PERMISOS { get; set; }
     }
 }

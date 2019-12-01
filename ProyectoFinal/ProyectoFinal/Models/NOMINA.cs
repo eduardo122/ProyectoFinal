@@ -19,6 +19,6 @@ namespace ProyectoFinal.Models
         public string mes { get; set; }
         public Nullable<int> monto_total { get; set; }
     }
-
     public enum meses { Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre }
+
 }

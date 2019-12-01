@@ -44,6 +44,16 @@
           <Property Name="mes" Type="varchar" MaxLength="50" />
           <Property Name="monto_total" Type="int" />
         </EntityType>
+        <EntityType Name="PERMISOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empleado" Type="int" />
+          <Property Name="desde" Type="date" />
+          <Property Name="hasta" Type="date" />
+          <Property Name="comentarios" Type="varchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="SALIDAS">
           <Key>
             <PropertyRef Name="ID" />
@@ -89,6 +99,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__PERMISOS__emplea__19DFD96B">
+          <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="0..1" />
+          <End Role="PERMISOS" Type="Self.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__SALIDAS__emplead__0C85DE4D">
           <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="0..1" />
           <End Role="SALIDAS" Type="Self.SALIDAS" Multiplicity="*" />
@@ -118,6 +140,7 @@
           <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NOMINAS" EntityType="Self.NOMINAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERMISOS" EntityType="Self.PERMISOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VACACIONES" EntityType="Self.VACACIONES" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__EMPLEADOS__cargo__04E4BC85" Association="Self.FK__EMPLEADOS__cargo__04E4BC85">
@@ -127,6 +150,10 @@
           <AssociationSet Name="FK__EMPLEADOS__depar__03F0984C" Association="Self.FK__EMPLEADOS__depar__03F0984C">
             <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERMISOS__emplea__19DFD96B" Association="Self.FK__PERMISOS__emplea__19DFD96B">
+            <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
           </AssociationSet>
           <AssociationSet Name="FK__SALIDAS__emplead__0C85DE4D" Association="Self.FK__SALIDAS__emplead__0C85DE4D">
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
@@ -176,6 +203,7 @@
           <NavigationProperty Name="DEPARTAMENTO1" Relationship="Self.FK__EMPLEADOS__depar__03F0984C" FromRole="EMPLEADOS" ToRole="DEPARTAMENTOS" />
           <NavigationProperty Name="SALIDAS" Relationship="PROYECTO_FINALModel.FK__SALIDAS__emplead__0C85DE4D" FromRole="EMPLEADO" ToRole="SALIDA" />
           <NavigationProperty Name="VACACIONES" Relationship="PROYECTO_FINALModel.FK__VACACIONE__emple__17036CC0" FromRole="EMPLEADO" ToRole="VACACIONE" />
+          <NavigationProperty Name="PERMISOS" Relationship="PROYECTO_FINALModel.FK__PERMISOS__emplea__19DFD96B" FromRole="EMPLEADO" ToRole="PERMISO" />
         </EntityType>
         <Association Name="FK__EMPLEADOS__cargo__04E4BC85">
           <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
@@ -223,6 +251,11 @@
           <AssociationSet Name="FK__VACACIONE__emple__17036CC0" Association="PROYECTO_FINALModel.FK__VACACIONE__emple__17036CC0">
             <End Role="EMPLEADO" EntitySet="EMPLEADOS" />
             <End Role="VACACIONE" EntitySet="VACACIONES" />
+          </AssociationSet>
+          <EntitySet Name="PERMISOS" EntityType="PROYECTO_FINALModel.PERMISO" />
+          <AssociationSet Name="FK__PERMISOS__emplea__19DFD96B" Association="PROYECTO_FINALModel.FK__PERMISOS__emplea__19DFD96B">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOS" />
+            <End Role="PERMISO" EntitySet="PERMISOS" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="NOMINA">
@@ -277,6 +310,29 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="VACACIONE">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PERMISO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empleado" Type="Int32" />
+          <Property Name="desde" Type="DateTime" Precision="0" />
+          <Property Name="hasta" Type="DateTime" Precision="0" />
+          <Property Name="comentarios" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLEADO1" Relationship="PROYECTO_FINALModel.FK__PERMISOS__emplea__19DFD96B" FromRole="PERMISO" ToRole="EMPLEADO" />
+        </EntityType>
+        <Association Name="FK__PERMISOS__emplea__19DFD96B">
+          <End Type="PROYECTO_FINALModel.EMPLEADO" Role="EMPLEADO" Multiplicity="0..1" />
+          <End Type="PROYECTO_FINALModel.PERMISO" Role="PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PERMISO">
               <PropertyRef Name="empleado" />
             </Dependent>
           </ReferentialConstraint>
@@ -346,6 +402,17 @@
               <MappingFragment StoreEntitySet="VACACIONES">
                 <ScalarProperty Name="comentarios" ColumnName="comentarios" />
                 <ScalarProperty Name="correspondiente" ColumnName="correspondiente" />
+                <ScalarProperty Name="hasta" ColumnName="hasta" />
+                <ScalarProperty Name="desde" ColumnName="desde" />
+                <ScalarProperty Name="empleado" ColumnName="empleado" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERMISOS">
+            <EntityTypeMapping TypeName="PROYECTO_FINALModel.PERMISO">
+              <MappingFragment StoreEntitySet="PERMISOS">
+                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
                 <ScalarProperty Name="hasta" ColumnName="hasta" />
                 <ScalarProperty Name="desde" ColumnName="desde" />
                 <ScalarProperty Name="empleado" ColumnName="empleado" />

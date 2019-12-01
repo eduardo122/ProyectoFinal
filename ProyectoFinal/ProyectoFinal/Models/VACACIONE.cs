@@ -17,13 +17,13 @@ namespace ProyectoFinal.Models
     {
         public int ID { get; set; }
         public int empleado { get; set; }
-        [Required(ErrorMessage = "Introduzca la fecha de salida")]
+        [Required(ErrorMessage ="Se requiere la fecha de incio")]
         public Nullable<System.DateTime> desde { get; set; }
-        [Required(ErrorMessage = "Introduzca la fecha de regreso")]
+        [Required(ErrorMessage = "Se requiere la fecha de regreso")]
         public Nullable<System.DateTime> hasta { get; set; }
-        [Required(ErrorMessage = "Introduzca el año correspondiente")]
+        [Required(ErrorMessage = "Se requiere el año correspondiente")]
         public string correspondiente { get; set; }
-        [Required(ErrorMessage = "Introduzca un comentario")]
+        [Required(ErrorMessage = "Se requiere un comentario")]
         public string comentarios { get; set; }
     
         public virtual EMPLEADO EMPLEADO1 { get; set; }

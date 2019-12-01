@@ -19,6 +19,7 @@ namespace ProyectoFinal.Models
         {
             this.SALIDAS = new HashSet<SALIDA>();
             this.VACACIONES = new HashSet<VACACIONE>();
+            this.PERMISOS = new HashSet<PERMISO>();
         }
     
         public int id { get; set; }
@@ -38,6 +39,8 @@ namespace ProyectoFinal.Models
         public virtual ICollection<SALIDA> SALIDAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VACACIONE> VACACIONES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PERMISO> PERMISOS { get; set; }
     }
     public enum Estatus { Activo, Inactivo }
 }

@@ -12,5 +12,6 @@ namespace ProyectoFinal.Models
         public DEPARTAMENTO ListaDeDepartamentos { get; set; }
         public CARGO ListDeCargos { get; set; }
         public SALIDA listaDeSalidas { get; set; }
+        public PERMISO listaDePermisos { get; set; }
     }
 }

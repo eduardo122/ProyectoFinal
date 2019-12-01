@@ -319,6 +319,8 @@
     <Content Include="Views\Home\busquedaEmpleadoMes.cshtml" />
     <Content Include="Views\Home\InformeSalidaMes.cshtml" />
     <Content Include="Views\Home\busquedaSalidaMes.cshtml" />
+    <Content Include="Views\Home\InformePermisos.cshtml" />
+    <Content Include="Views\Home\BuscarPermiso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

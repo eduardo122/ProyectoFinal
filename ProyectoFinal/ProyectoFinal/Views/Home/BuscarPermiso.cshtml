@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "BuscarPermiso";
+}
+
+<table class="table border-1 border-info">
+    <tr class="bg-info">
+        <th>
+            Empleado
+        </th>
+        <th>
+           Desde
+        </th>
+        <th>
+           Hasta
+        </th>
+        <th>
+           Comentario
+        </th>
+    </tr>
+
+    @foreach (var item in ViewData["permisos"] as IEnumerable<ProyectoFinal.Models.Listas>)
+    {
+        <tr>
+           
+            <td>@item.ListaDeEmpleados.nombre  @item.ListaDeEmpleados.apellido</td>
+            <td>@item.listaDePermisos.desde </td>
+            <td>@item.listaDePermisos.hasta</td>
+            <td>@item.listaDePermisos.comentarios</td>
+
+        </tr>
+
+    }
+</table>
+

@@ -433,6 +433,34 @@ namespace ProyectoFinal.Controllers
 
         }
 
+
+        public ActionResult InformePermisos() {
+            PROYECTO_FINALEntities1 db = new PROYECTO_FINALEntities1();
+          
+            var getEmpleados = db.EMPLEADOS.ToList();
+
+            SelectList lista = new SelectList(getEmpleados, "id", "Nombre", "Apellido", "", "");
+            ViewBag.empleados = lista;
+
+            return View();
+        }
+
+        public ActionResult BuscarPermiso(int empleado) {
+            PROYECTO_FINALEntities1 db = new PROYECTO_FINALEntities1();
+            List<PERMISO> permisoLista = db.PERMISOS.ToList();
+            List<EMPLEADO> empleadoLista = db.EMPLEADOS.ToList();
+            int id = Int32.Parse((Request.Form["empleado"]));
+
+            ViewData["permisos"] = from p in permisoLista where p.empleado == empleado
+                               join e in empleadoLista on p.empleado equals e.id into table1
+                               from e in table1.DefaultIfEmpty()
+                               select new Listas { listaDePermisos = p, ListaDeEmpleados= e };
+
+            
+
+            return View(ViewData["permisos"]);
+        }
+
     }
 }
 

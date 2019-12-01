@@ -146,6 +146,9 @@
     <Compile Include="Models\EMPLEADO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LICENCIA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ListaEmpleados.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -301,6 +304,7 @@
     <Content Include="Views\Home\ConfirmarSalida.cshtml" />
     <Content Include="Views\Home\Vacaciones.cshtml" />
     <Content Include="Views\Home\Permisos.cshtml" />
+    <Content Include="Views\Home\Licencias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

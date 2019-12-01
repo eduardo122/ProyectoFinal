@@ -200,6 +200,36 @@ namespace ProyectoFinal.Controllers
             return View();
         }
 
+        public ActionResult Licencias() {
+            PROYECTO_FINALEntities1 db = new PROYECTO_FINALEntities1();
+            LICENCIA LC = new LICENCIA();
+            var getEmpleados = db.EMPLEADOS.ToList();
+
+            SelectList lista = new SelectList(getEmpleados, "id", "Nombre", "Apellido", "", "");
+            ViewBag.empleados = lista;
+
+            int id;
+            string desde = Request.Form["desde"];
+            string hasta = Request.Form["hasta"];
+            if (String.IsNullOrEmpty(Request.Form["empleado"])) { id = 0; }
+
+            else { id = Int32.Parse((Request.Form["empleado"])); }
+
+            LC.empleado = id;
+            LC.desde = Convert.ToDateTime(desde);
+            LC.hasta = Convert.ToDateTime(hasta);
+            LC.comentarios = Request.Form["comentarios"];
+            LC.motivo = Request.Form["motivo"];
+            if (!String.IsNullOrEmpty(LC.comentarios))
+            {
+                db.LICENCIAS.Add(LC);
+                db.SaveChanges();
+                return RedirectToAction("Procesos");
+            }
+            return View();
+        }
+
+
 
 
 

@@ -17,6 +17,8 @@
         <AssociationConnector Association="PROYECTO_FINALModel.FK__VACACIONE__emple__17036CC0" />
         <EntityTypeShape EntityType="PROYECTO_FINALModel.PERMISO" Width="1.5" PointX="5.25" PointY="9.875" />
         <AssociationConnector Association="PROYECTO_FINALModel.FK__PERMISOS__emplea__19DFD96B" />
+        <EntityTypeShape EntityType="PROYECTO_FINALModel.LICENCIA" Width="1.5" PointX="5.25" PointY="12.875" />
+        <AssociationConnector Association="PROYECTO_FINALModel.FK__LICENCIAS__emple__1CBC4616" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -11,10 +11,12 @@ namespace ProyectoFinal.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class NOMINA
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Se requiere el año")]
         public Nullable<int> año { get; set; }
         public string mes { get; set; }
         public Nullable<int> monto_total { get; set; }

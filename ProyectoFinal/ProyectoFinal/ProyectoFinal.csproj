@@ -194,6 +194,8 @@
     <Content Include="img\despedido.jpg" />
     <Content Include="img\empleado.jpg" />
     <Content Include="img\empleados.jpg" />
+    <Content Include="img\foto.jpg" />
+    <Content Include="img\foto2.jpeg" />
     <Content Include="img\inactivo.jpg" />
     <Content Include="img\licencia.png" />
     <Content Include="img\logo.png" />

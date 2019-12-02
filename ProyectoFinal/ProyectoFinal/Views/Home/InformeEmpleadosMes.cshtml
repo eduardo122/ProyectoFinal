@@ -5,6 +5,9 @@
 }
 
 
+<h1 class="display-4 text-info">Entradas de empleados por mes</h1>
+<hr />
+
 @using (Html.BeginForm("busquedaEmpleadoMes", "Home"))
 {
     @Html.AntiForgeryToken()
@@ -21,7 +24,7 @@
         <div class="form-group">
             @Html.Label("Buscar Empleado por mes", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("mes" ,new SelectList(Enum.GetValues(typeof(meses_EMPLEADO))), new { @class = "form-control" })
+                @Html.DropDownList("mes", new SelectList(Enum.GetValues(typeof(meses_EMPLEADO))), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.fecha_ingreso, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -32,3 +35,4 @@
         </div>
     </div>
 }
+@Html.ActionLink("Regresar", "Informes", "Home")

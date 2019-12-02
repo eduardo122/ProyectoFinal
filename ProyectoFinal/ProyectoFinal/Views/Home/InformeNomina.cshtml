@@ -3,20 +3,22 @@
     ViewBag.Title = "InformeNomina";
 }
 
+<h1 class="display-4 text-info">Nominas</h1>
+<hr />
 
 <table class="table border-1 border-info">
     <tr class="bg-info">
         <th>
-            Año 
+            Año
         </th>
         <th>
             Mes
         </th>
         <th>
-           Monto Total
+            Monto Total
         </th>
     </tr>
-  
+
     @foreach (var item in ViewData["Nominas"] as IEnumerable<ProyectoFinal.Models.Listas>)
     {
         <tr>
@@ -29,3 +31,4 @@
     }
 </table>
 
+@Html.ActionLink("Regresar", "Informes", "Home")

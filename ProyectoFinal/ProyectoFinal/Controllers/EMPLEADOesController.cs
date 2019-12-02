@@ -120,8 +120,15 @@ namespace ProyectoFinal.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             EMPLEADO eMPLEADO = db.EMPLEADOS.Find(id);
-            db.EMPLEADOS.Remove(eMPLEADO);
-            db.SaveChanges();
+            try
+            { 
+                db.EMPLEADOS.Remove(eMPLEADO);
+                db.SaveChanges();
+            }
+            catch(Exception e){
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 

@@ -9,20 +9,20 @@
             Empleado
         </th>
         <th>
-           Desde
+            Desde
         </th>
         <th>
-           Hasta
+            Hasta
         </th>
         <th>
-           Comentario
+            Comentario
         </th>
     </tr>
 
     @foreach (var item in ViewData["permisos"] as IEnumerable<ProyectoFinal.Models.Listas>)
     {
         <tr>
-           
+
             <td>@item.ListaDeEmpleados.nombre  @item.ListaDeEmpleados.apellido</td>
             <td>@item.listaDePermisos.desde </td>
             <td>@item.listaDePermisos.hasta</td>
@@ -33,3 +33,4 @@
     }
 </table>
 
+@Html.ActionLink("Regresar", "InformePermisos", "Home")

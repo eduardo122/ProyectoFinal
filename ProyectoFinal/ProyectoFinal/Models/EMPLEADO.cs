@@ -11,7 +11,8 @@ namespace ProyectoFinal.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class EMPLEADO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,12 +26,17 @@ namespace ProyectoFinal.Models
     
         public int id { get; set; }
         public string codigo_empleado { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string nombre { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string apellido { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string telefono { get; set; }
         public Nullable<int> departamento { get; set; }
         public Nullable<int> cargo { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public System.DateTime fecha_ingreso { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public Nullable<int> salario { get; set; }
         public string estatus { get; set; }
     

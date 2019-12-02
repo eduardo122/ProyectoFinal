@@ -5,6 +5,11 @@
 }
 
 
+<h1 class="display-4 text-info">Permisos tomados</h1>
+<hr />
+
+
+
 @using (Html.BeginForm("BuscarPermiso", "Home"))
 {
     @Html.AntiForgeryToken()
@@ -30,3 +35,4 @@
 }
 
 
+@Html.ActionLink("Regresar", "Informes", "Home")
